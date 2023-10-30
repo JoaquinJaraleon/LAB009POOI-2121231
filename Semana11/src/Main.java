@@ -39,7 +39,9 @@ public class Main {
                     System.out.println("");
                     break;
                 case 2:
-                    
+                    a.buscarEstudiante();
+                    System.out.println("");
+                    break;
                 case 3:
                     
                 
@@ -58,7 +60,9 @@ public class Main {
                     
                 
                 case 9:
-                     
+                    a.sumTotalPensiones();
+                    System.out.println("");
+                    break; 
                     
                 case 10:
                     cerrar = 10;

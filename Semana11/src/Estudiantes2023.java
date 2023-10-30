@@ -81,7 +81,53 @@ public class Estudiantes2023 {
         }
     }
     
+    public void buscarEstudiante() {
+        try{
+            System.out.println("\nRecuerde poner exactamente el nombre y apellido del estudiante\n");
+            
+            System.out.print("Ingrese el nombre del estudiante : ");
+            String nombre = scanner.next();
+            
+            System.out.print("Ingrese el apellido del estudiante : ");
+            String apellido = scanner.next();
+            
+            String nombreapellido = nombre + " " + apellido;
+            
+            String resultado = null;
+            
+            
+            for (Estudiante estudiante : estudiantes){
+                if (estudiante.getNombre().equals(nombreapellido)){
+                    resultado = estudiante.toString();
+                    break;
+                }
+            }
+        
+            if(resultado != null){
+                System.out.println(resultado);
+            }else{
+                System.out.println("\nNo se encontro el estudiante");
+            }  
+        }catch(InputMismatchException e){
+            System.out.println("No es el tipo de dato solicitado, intente otra vez");
+        }
+    }
     
+    
+    
+    public void sumTotalPensiones(){
+        double sumatotal = 0;
+        
+        for (Estudiante estudiante : estudiantes){
+            sumatotal += estudiante.getPension();
+        }
+        
+        System.out.println("La suma total de la pensiones de los estudiantes es : S/" + sumatotal +"\n");
+    }
+    
+    
+
+
     
     
     
