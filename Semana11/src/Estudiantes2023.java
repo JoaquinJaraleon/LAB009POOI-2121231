@@ -154,9 +154,77 @@ public class Estudiantes2023 {
         System.out.println("La suma total de la pensiones de los estudiantes es : S/" + sumatotal +"\n");
     }
     
-    
+    public void modificarEstudiante() {
+        try{
+            System.out.println("\nRecuerde poner exactamente el nombre y apellido del estudiante\n");
+            
+            System.out.print("Ingrese el nombre del estudiante : ");
+            String nombre = scanner.next();
+            
+            System.out.print("Ingrese el apellido del estudiante : ");
+            String apellido = scanner.next();
+            
+            String nombreapellido = nombre + " " + apellido;
+            
+            for (Estudiante estudiante : estudiantes){
+                if (estudiante.getNombre().equals(nombreapellido)){
+                    int cerrar = 0;
+                    do{
+                        System.out.println("1. Modificar Nombre");
+                        System.out.println("2. Modificar Ciclo");
+                        System.out.println("3. Modificar Pension");
+                        System.out.println("4. Salir");
+                        System.out.print("Ingrese su numero de operación : ");
+                        int numOperacion = scanner.nextInt();
+                        
+                        switch (numOperacion) {
+                            
+                            case 1:
+                                System.out.print("Ingrese el nuevo nombre del estudiante : ");
+                                String nnombre = scanner.next();
+                                
+                                System.out.print("Ingrese el nuevo apellido del estudiante : ");
+                                String napellido = scanner.next();
+                                
+                                String nnombreapellido = nnombre + " " + napellido;
+                                estudiante.setNombre(nnombreapellido);
+                                
+                                System.out.println("\nEl cambio ha sido hecho\n");
+                                break;
+                                
+                            case 2:
+                                System.out.print("Ingrese el nuevo ciclo del estudiante : ");
+                                int nciclo = scanner.nextInt();
+                                
+                                estudiante.setCiclo(nciclo);
+                                System.out.println("\nEl cambio ha sido hecho\n");
+                                break;
+                                
+                            case 3:
+                                System.out.print("Ingrese la nueva pension del estudiante : ");
+                                double npension = scanner.nextDouble();
+                                
+                                estudiante.setPension(npension);
+                                System.out.println("\nEl cambio ha sido hecho\n");
+                                break;
+                                
+                            case 4:
+                                cerrar = 3;
+                                System.out.println("\nSaliendo....");
+                                break;   
+                        }
+                    }while(cerrar != 3);
+                    return;
+                }
+            }
+        
+            System.out.println("\nNo se encontro el estudiante\n");
+        }catch(InputMismatchException e){
+            System.out.println("No es el tipo de dato solicitado, intente otra vez");
+        }
+    }
 
-    public void modificarApellidosMinusculaAMayuscula() {
+    public void modificarApellidosMinuscula() {
         for (Estudiante estudiante : estudiantes) {
            String nombreCompleto = estudiante.getNombre();
         
@@ -171,7 +239,35 @@ public class Estudiantes2023 {
     }
     
     
+    public void mostrarTablaEstudiantes() {
+    System.out.println("-----------------------------------------------------------------------------------------------");
+    System.out.println("|   CÓDIGO   |   NOMBRE COMPLETO           |   CICLO  |   PENSION   |");
+    System.out.println("-----------------------------------------------------------------------------------------------");
+
+    for (Estudiante estudiante : estudiantes) {
+        System.out.printf("|   %-8s |   %-25s |   %-6d |   %-9.2f |\n",
+                estudiante.getCodigo(),
+                estudiante.getNombre(),
+                estudiante.getCiclo(),
+                estudiante.getPension());
+    }
+
+    System.out.println("-----------------------------------------------------------------------------------------------");
+    }
     
+    public void mostrarTablaEstudiantesXPension() {
+    System.out.println("-----------------------------------------------------------------------------------------------");
+    System.out.println("|   NOMBRE COMPLETO           |   PENSION   |");
+    System.out.println("-----------------------------------------------------------------------------------------------");
+
+    for (Estudiante estudiante : estudiantes) {
+        System.out.printf("|   %-25s |   %-9.2f |\n",
+                estudiante.getNombre(),
+                estudiante.getPension());
+    }
+
+    System.out.println("-----------------------------------------------------------------------------------------------");
+    }
 
 
     

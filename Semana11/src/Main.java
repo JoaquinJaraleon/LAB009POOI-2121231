@@ -48,20 +48,25 @@ public class Main {
                     break;
                 
                 case 4:
-                    
+                    a.modificarEstudiante();
+                    System.out.println("");
+                    break;
                 
                 case 5:
-                    a.modificarApellidosMinusculaAMayuscula();
+                    a.modificarApellidosMinuscula();
                     System.out.println("");
                     break;
                 
                 case 6:
-                    
+                    a.mostrarTablaEstudiantes();
+                    break;
                     
                 case 7:
+                    break;
                 
                 case 8:
-                    
+                    a.mostrarTablaEstudiantesXPension();
+                    break;
                 
                 case 9:
                     a.sumTotalPensiones();
