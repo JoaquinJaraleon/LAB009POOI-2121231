@@ -43,13 +43,17 @@ public class Main {
                     System.out.println("");
                     break;
                 case 3:
-                    
+                    a.eliminarEstudiante();
+                    System.out.println("");
+                    break;
                 
                 case 4:
                     
                 
                 case 5:
-                    
+                    a.modificarApellidosMinusculaAMayuscula();
+                    System.out.println("");
+                    break;
                 
                 case 6:
                     

@@ -113,7 +113,36 @@ public class Estudiantes2023 {
         }
     }
     
-    
+    public void eliminarEstudiante(){
+        try{
+            System.out.println("\nRecuerde poner exactamente el nombre y apellido del estudiante\n");
+        
+            System.out.print("Ingrese el nombre del estudiante : ");
+            String nombre = scanner.next();
+            
+            System.out.print("Ingrese el apellido del estudiante : ");
+            String apellido = scanner.next();
+            
+            String nombreapellido = nombre + " " + apellido;
+            
+            for (Estudiante estudiante : estudiantes){
+                if (estudiante.getNombre().equals(nombreapellido)){
+                 int index = estudiantes.indexOf(estudiante);
+                    estudiantes.remove(index);
+                    
+                    if(estudiantes.contains(estudiante)){
+                        System.out.println("No se elimino\n");
+                    }else{
+                        System.out.println("Se ha eliminado correctamente\n");
+                    }
+                    return;
+                }
+            }    
+            System.out.println("\nNo se encontro el estudiante");
+        }catch(InputMismatchException e){
+            System.out.println("No es el tipo de dato solicitado, intente otra vez");
+        }
+    }
     
     public void sumTotalPensiones(){
         double sumatotal = 0;
@@ -124,6 +153,23 @@ public class Estudiantes2023 {
         
         System.out.println("La suma total de la pensiones de los estudiantes es : S/" + sumatotal +"\n");
     }
+    
+    
+
+    public void modificarApellidosMinusculaAMayuscula() {
+        for (Estudiante estudiante : estudiantes) {
+           String nombreCompleto = estudiante.getNombre();
+        
+            String nombreModificado1;
+        
+            nombreModificado1 = nombreCompleto.toLowerCase();
+        
+            String nombreModificado2 = nombreModificado1.substring(0, 1).toUpperCase() + nombreModificado1.substring(1);
+        
+            estudiante.setNombre(nombreModificado2);
+        }
+    }
+    
     
     
 
